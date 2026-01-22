@@ -7,9 +7,14 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Info
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -20,6 +25,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.gradapp.ui.theme.GradAppTheme
 
@@ -60,6 +66,20 @@ fun GradScreen(modifier: Modifier = Modifier) {
             contentDescription = "Graduation Cap",
             alpha = 0.3f
         )
+        Row(
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Icon (
+                imageVector = Icons.Filled.Info,
+                contentDescription = "Information",
+                tint = Color.Gray,
+                modifier = Modifier.padding(10.dp).size(40.dp)
+            )
+            Text (
+                text = "May 14 - Ganus Hall - 2:00pm",
+                fontSize = 20.sp
+            )
+        }
     }
 }
 
