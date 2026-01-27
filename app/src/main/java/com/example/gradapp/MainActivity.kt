@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -52,8 +53,11 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun GradScreen(modifier: Modifier = Modifier) {
+    var isChecked by remember { mutableStateOf(true)}
+    val color = if (isChecked) Color(color = 0xff00ff00) else Color.Transparent
+
     Column(
-        modifier = modifier.fillMaxHeight(),
+        modifier = Modifier.fillMaxHeight().background(color),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.SpaceEvenly
     ){
@@ -65,6 +69,12 @@ fun GradScreen(modifier: Modifier = Modifier) {
             lineHeight = 50.sp,
             color = Color.Red,
             modifier = modifier
+        )
+        Switch(
+            checked = isChecked,
+            onCheckedChange = {
+                isChecked = it
+            }
         )
         Image(
             painter = painterResource(id = R.drawable.grad_cap),
@@ -78,7 +88,9 @@ fun GradScreen(modifier: Modifier = Modifier) {
                 imageVector = Icons.Filled.Info,
                 contentDescription = "Information",
                 tint = Color.Gray,
-                modifier = Modifier.padding(10.dp).size(40.dp)
+                modifier = Modifier
+                    .padding(10.dp)
+                    .size(40.dp)
             )
             Text (
                 text = "May 14 - Ganus Hall - 2:00pm",
